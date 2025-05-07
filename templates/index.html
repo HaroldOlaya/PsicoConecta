@@ -41,38 +41,47 @@
 <section id="planes" class="container py-5">
     <h2 class="text-center mb-4">Nuestros Planes</h2>
     <div class="row">
+        <!-- Plan Básico -->
         <div class="col-md-4">
-            <div class="card border-primary">
-                <div class="card-body text-center">
+            <div class="card">
+                <div class="card-body">
                     <h5 class="card-title">Plan Básico</h5>
-                    <p>Consulta única de 30 minutos.</p>
+                    <p class="card-text">Consulta única de 30 minutos.</p>
                     <p><strong>$70.000 COP</strong></p>
-                    <a href="#" class="btn btn-outline-primary">Seleccionar</a>
+                    <button class="btn btn-primary" onclick="showWidget('Plan Básico Seleccionado')">Seleccionar</button>
                 </div>
             </div>
         </div>
+        <!-- Plan Avanzado -->
         <div class="col-md-4">
-            <div class="card border-success">
-                <div class="card-body text-center">
+            <div class="card">
+                <div class="card-body">
                     <h5 class="card-title">Plan Avanzado</h5>
-                    <p>60 minutos + seguimiento por chat.</p>
+                    <p class="card-text">60 minutos + seguimiento por chat.</p>
                     <p><strong>$120.000 COP</strong></p>
-                    <a href="#" class="btn btn-outline-success">Seleccionar</a>
+                    <button class="btn btn-success" onclick="showWidget('Plan Avanzado Seleccionado')">Seleccionar</button>
                 </div>
             </div>
         </div>
+        <!-- Plan Premium -->
         <div class="col-md-4">
-            <div class="card border-warning">
-                <div class="card-body text-center">
+            <div class="card">
+                <div class="card-body">
                     <h5 class="card-title">Plan Premium</h5>
-                    <p>Consultas ilimitadas al mes.</p>
+                    <p class="card-text">Consultas ilimitadas al mes.</p>
                     <p><strong>$200.000 COP</strong></p>
-                    <a href="#" class="btn btn-outline-warning">Seleccionar</a>
+                    <button class="btn btn-warning" onclick="showWidget('Plan Premium Seleccionado')">Seleccionar</button>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
+    <!-- Widget -->
+<div id="widget" class="widget">
+    <p id="widget-text"></p>
+</div>
+
 
 <!-- Sección Estadísticas -->
 <section id="estadisticas" class="bg-light py-5">
@@ -119,7 +128,17 @@
 <footer class="text-center py-4 bg-dark text-white mt-5">
     <p>&copy; 2025 PsicoConecta | Todos los derechos reservados</p>
 </footer>
-
+<!-- Javascript para mostrar el widget -->
+<script>
+    function showWidget(message) {
+        document.getElementById('widget-text').innerText = message;
+        var widget = document.getElementById('widget');
+        widget.classList.add('show');
+        setTimeout(function() {
+            widget.classList.remove('show');
+        }, 3000); // Desaparece después de 3 segundos
+    }
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
